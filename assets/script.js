@@ -4,10 +4,13 @@ var timeLeft = document.querySelector('.time-left');
 var endTime = document.querySelector('.time-end');
 var buttons = document.querySelectorAll('[data-time]');
 var tally = document.querySelector('.tally');
-
+var alarm = document.querySelector('#alarm');
+var stopButton = document.querySelector('#stop');
+stopButton.style.visibility = 'hidden';
+stopButton.addEventListener('click', stopAlarm)
 buttons.forEach(button => button.addEventListener('click', startTimer));
 
-function timer(seconds) {
+function timer(seconds, isBreak) {
     clearInterval(timer);
     const now = Date.now(); // milliseconds
     const then = now + (seconds * 1000); // figure out end time in milliseconds
@@ -18,12 +21,14 @@ function timer(seconds) {
     countdown = setInterval(function () {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
         if (secondsLeft < 0) {
-            counter++;
+            if (!isBreak) {
+                counter++;
+            }
             tally.textContent = `Completed: ${counter}`
             clearInterval(countdown);
-            if (counter >= 4) {
-                timer(1800);
-            }
+
+            playAlarm();
+
             return;
         }
         displayTimeLeft(secondsLeft);
@@ -42,9 +47,28 @@ function displayEndTime(timestamp) {
     var q = new Date(timestamp);
     const hours = q.getHours();
     const minutes = q.getMinutes();
-    endTime.textContent = `${hours > 12 ? hours - 12 : hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+    endTime.textContent = `End time: ${hours > 12 ? hours - 12 : hours}:${minutes < 10 ? '0' : ''}${minutes}`;
 }
 
 function startTimer() {
     timer(parseInt(this.dataset.time))
+}
+
+function playAlarm(arguments) {
+    stopButton.style.visibility = 'visible';
+    endTime.textContent = '';
+    alarm.play();
+}
+function stopAlarm() {
+    stopButton.style.visibility = 'hidden';
+    timeLeft.textContent = 'No time selected';
+    endTime.textContent = 'grab a coffee'
+    alarm.pause();
+
+    if (counter >= 4) {
+        counter = 0;
+        timer(1800);
+    } else {
+        timer(330, true);
+    }
 }
