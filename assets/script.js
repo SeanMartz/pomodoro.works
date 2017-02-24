@@ -11,7 +11,10 @@ stopButton.addEventListener('click', stopAlarm)
 buttons.forEach(button => button.addEventListener('click', startTimer));
 
 function timer(seconds, isBreak) {
-    clearInterval(timer);
+    if (seconds === 300) {
+        isBreak = true;
+    }
+    clearInterval(countdown);
     const now = Date.now(); // milliseconds
     const then = now + (seconds * 1000); // figure out end time in milliseconds
     displayTimeLeft(seconds);
