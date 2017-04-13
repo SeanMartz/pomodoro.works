@@ -1,5 +1,7 @@
 html{
     font-family: 'Roboto', sans-serif;
+    background: #303030;
+    color: #E6E6E6;
 }
 .timer{
   display: flex;
@@ -31,4 +33,20 @@ html{
 
 .button-secondary {
     background: rgb(66, 184, 221); /* this is a light blue */
+}
+.pure-form legend{
+        color: #E6E6E6;
+}
+
+.pure-form textarea{
+  background: #303030;
+}
+
+.pure-menu-item{
+ background: #303030;
+
+}
+
+.pure-menu-children{
+    border: grey;
 }
