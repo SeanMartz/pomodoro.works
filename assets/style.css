@@ -44,7 +44,10 @@ html{
 
 .pure-menu-item{
  background: #303030;
+}
 
+.pure-menu-item a[data-time]:hover{
+    cursor:pointer;
 }
 
 .pure-menu-children{
