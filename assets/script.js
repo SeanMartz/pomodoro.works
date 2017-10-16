@@ -74,7 +74,7 @@ function stopAlarm() {
         counter = 0;
         timer(1800);
     } else {
-        timer(330, true);
+        timer(300, true);
     }
 }
 function stopTimer() {
