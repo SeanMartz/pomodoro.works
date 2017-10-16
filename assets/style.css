@@ -53,3 +53,7 @@ html{
 .pure-menu-children{
     border: grey;
 }
+
+#stopTimer {
+    margin-top: 5%;
+}
