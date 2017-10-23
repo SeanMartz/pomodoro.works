@@ -6,8 +6,10 @@ var buttons = document.querySelectorAll('[data-time]');
 var tally = document.querySelector('.tally');
 var alarm = document.querySelector('#alarm');
 var stopButton = document.querySelector('#stop');
+var stopTimerButton = document.querySelector('#stopTimer');
 stopButton.style.visibility = 'hidden';
-stopButton.addEventListener('click', stopAlarm)
+stopButton.addEventListener('click', stopAlarm);
+stopTimerButton.addEventListener('click', stopTimer);
 buttons.forEach(button => button.addEventListener('click', startTimer));
 
 function timer(seconds, isBreak) {
@@ -54,7 +56,7 @@ function displayEndTime(timestamp) {
 }
 
 function startTimer() {
-    timer(parseInt(this.dataset.time))
+    timer(parseInt(this.dataset.time));
 }
 
 function playAlarm(arguments) {
@@ -72,6 +74,12 @@ function stopAlarm() {
         counter = 0;
         timer(1800);
     } else {
-        timer(330, true);
+        timer(300, true);
     }
+}
+function stopTimer() {
+    clearInterval(countdown);
+    timeLeft.textContent = 'No time selected';
+    endTime.textContent = 'grab a coffee';
+    document.title = "Pomodoro.works";
 }
