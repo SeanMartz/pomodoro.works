@@ -24,6 +24,22 @@
             <li class="pure-menu-item"><a class="pure-menu-link" data-time="1200">20 min</a></li>
             <li class="pure-menu-item"><a class="pure-menu-link" data-time="1500">25 min</a></li>
         </ul>
+		
+		 <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                <a href="#" class="pure-menu-link">Set Alarm Sound</a>
+                <ul class="pure-menu-children">
+                    <li class="pure-menu-item"><a class="pure-menu-link" id="lnkRailroad" data-value="assets/sounds/railroad_crossing_bell.mp3" href="#">Railroad Crossing<span class="currentAlarm"> &#10003;</span></a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" id="lnkClock" data-value="assets/sounds/clock-chimes-daniel_simon.mp3" href="#">Clock Chimes<span class="currentAlarm"></span></a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" id="lnkFrontDesk" data-value="assets/sounds/front-desk-bells-daniel_simon.mp3" href="#">Front Desk<span class="currentAlarm"></span></a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" id="lnkCheering1" data-value="assets/sounds/1_person_cheering-Jett_Rifkin.mp3" href="#">Cheering 1<span class="currentAlarm"></span></a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" id="lnkCheering2" data-value="assets/sounds/Cheering2.mp3" href="#">Cheering 2<span class="currentAlarm"></span></a></li>
+                </ul>
+            </li>
+            <li class="pure-menu-item"><a class="pure-menu-link" target="_blank" href="http://cirillocompany.de/pages/pomodoro-technique/" >The Pomodoro Technique</a></li>
+        </ul>
+		
+		
         <ul class="pure-menu-list">
             <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                 <a href="#" class="pure-menu-link">Break Time</a>
@@ -38,7 +54,6 @@
                 </ul>
             </li>
             <li class="pure-menu-item"><a class="pure-menu-link" target="_blank" href="http://cirillocompany.de/pages/pomodoro-technique/" class="pure-menu-link">The Pomodoro Technique</a></li>
-
         </ul>
     </div>
     <div class="timer">
@@ -58,12 +73,11 @@
         </form>
         <button class="pure-button" id="stopTimer">STOP TIMER</button>
     </div>
-
-    <!--http://soundbible.com/2070-Railroad-Crossing-Bell.html-->
-    <audio id="alarm" src="assets/sounds/railroad_crossing_bell.mp3"></audio>
+    <div>
+        <audio loop id="alarm" src="assets/sounds/railroad_crossing_bell.mp3"></audio> 
+    </div>
+    
+    <script src="assets/script.js"></script>
 </body>
-
-<script src="assets/script.js"></script>
-
 
 </html>

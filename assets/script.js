@@ -11,7 +11,9 @@ stopButton.style.visibility = 'hidden';
 stopButton.addEventListener('click', stopAlarm);
 stopTimerButton.addEventListener('click', stopTimer);
 buttons.forEach(button => button.addEventListener('click', startTimer));
-
+//for testing
+//alarm.src = "assets/sounds/clock-chimes-daniel_simon.mp3";
+//playAlarm();
 function timer(seconds, isBreak) {
     if (seconds === 300) {
         isBreak = true;
@@ -74,7 +76,7 @@ function stopAlarm() {
         counter = 0;
         timer(1800);
     } else {
-        timer(300, true);
+       timer(300, true);
     }
 }
 function stopTimer() {
@@ -83,3 +85,29 @@ function stopTimer() {
     endTime.textContent = 'grab a coffee';
     document.title = "Pomodoro.works";
 }
+
+//alarm sounds
+document.querySelector('#lnkRailroad').addEventListener("click", loadSound);
+document.querySelector('#lnkClock').addEventListener("click", loadSound);
+document.querySelector('#lnkFrontDesk').addEventListener("click", loadSound);
+document.querySelector('#lnkCheering1').addEventListener("click", loadSound);
+document.querySelector('#lnkCheering2').addEventListener("click", loadSound);
+
+function loadSound() {
+    alarm.src = this.getAttribute('data-value');
+    alarm.load();
+    //clear any checkmarks
+    span = document.getElementsByClassName('currentAlarm');
+    [].slice.call(span).forEach(function (span) {
+        span.innerHTML = "";
+    });
+    var checkmark = this.getElementsByClassName("currentAlarm")[0];
+    checkmark.innerHTML = ' &#10003;';
+
+}
+
+
+
+
+
+
