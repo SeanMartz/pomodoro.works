@@ -57,3 +57,22 @@ html{
 #stopTimer {
     margin-top: 5%;
 }
+
+footer {
+    background: #231f1f;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1%;
+
+}
+
+.footerTxt {
+    color: #777;
+    text-align: right;
+    margin-right: 3%;
+}
+
+.footerTxt a {
+        color: #999;
+}

@@ -11,9 +11,7 @@ stopButton.style.visibility = 'hidden';
 stopButton.addEventListener('click', stopAlarm);
 stopTimerButton.addEventListener('click', stopTimer);
 buttons.forEach(button => button.addEventListener('click', startTimer));
-//for testing
-//alarm.src = "assets/sounds/clock-chimes-daniel_simon.mp3";
-//playAlarm();
+
 function timer(seconds, isBreak) {
     if (seconds === 300) {
         isBreak = true;
@@ -103,10 +101,15 @@ function loadSound() {
     });
     var checkmark = this.getElementsByClassName("currentAlarm")[0];
     checkmark.innerHTML = ' &#10003;';
-
+    playSample();
 }
 
-
+function playSample() {
+    alarm.play();
+    setTimeout(function () {
+        alarm.pause();
+    }, 3000);
+}
 
 
 
